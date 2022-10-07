@@ -2,18 +2,31 @@
 {
     public class Produto
     {
-        private static List<string> _produtoList = new List<string>();
+        private static List<string> _produtoLista = new List<string>();
+        public string Nome { get; set; }
 
-        public string SalvarProduto(string nomeDoProduto)
+        public Produto(string nome)
         {
-            _produtoList.Add(nomeDoProduto);
+            Nome = nome;
+            ValidateEntity();
+            SalvarProduto();
+        }
 
-            return "Produto salvo com sucesso!";
+        public string SalvarProduto()
+        {
+            _produtoLista.Add(Nome);
+            return $"Produto {Nome} salvo com sucesso!";
         }
 
         public string BuscarProdutoPorNome(string nomeDoProduto)
         {
-            return _produtoList.FirstOrDefault(x => x == nomeDoProduto, "Produto não encontrado");
+            return _produtoLista.FirstOrDefault(x => x == nomeDoProduto, "Produto não encontrado");
+        }
+
+        public void ValidateEntity()
+        {
+            AssertionConcern.AssertArgumentNotEmpty(Nome, "O nome não pode estar vazio!");
+            AssertionConcern.AssertArgumentLength(Nome, 30, $"O nome não pode ser maior que 30 caracteres!");
         }
     }
 }

@@ -6,20 +6,19 @@ namespace FIAP.Tests.Models
     public class ProdutoTests
     {
         Produto _produto;
+
         public ProdutoTests()
         {
-            _produto = new Produto();
-            _produto.SalvarProduto("Cadeira");
-            _produto.SalvarProduto("Mesa");
-            _produto.SalvarProduto("Mouse");
+
+
         }
 
         [Fact]
         public void Deve_salvar_Produto()
         {
             //Arrange
-          
-            //Act
+            _produto = new Produto("Cadeira");
+            // Act
             var resultado = _produto.BuscarProdutoPorNome("Cadeira");
 
             //Assert
@@ -28,9 +27,33 @@ namespace FIAP.Tests.Models
         }
 
         [Fact]
+        public void Deve_Validar_Se_Produto_Esta_Vazio_Sucesso()
+        {
+            //Act
+            var result = Assert.Throws<DomainException>(() => new Produto(""));
+
+            //Assert
+            Assert.Equal("O nome não pode estar vazio!", result.Message);
+
+        }
+
+        [Fact]
+        public void Deve_Salvar_Produto_Validar_Tamanho_Retornando_Exception()
+        {
+
+            var result = Assert.Throws<DomainException>(() => new Produto("Neste sentido, a valorização de fatores subjetivos exige a precisão e a definição do investimento em reciclagem técnica.\r\n"));
+
+            //Assert
+            Assert.Equal("O nome não pode ser maior que 30 caracteres!", result.Message);
+        }
+
+
+
+        [Fact]
         public void Deve_Buscar_Produto_Por_Nome_Retornar_Sucesso()
         {
             //Arrange          
+            _produto = new Produto("Cadeira");
 
             //Act
             var resultado = _produto.BuscarProdutoPorNome("Cadeira");
@@ -44,6 +67,7 @@ namespace FIAP.Tests.Models
         public void Deve_Buscar_Produto_Por_Nome_Retornar_Valor_Default()
         {
             //Arrange          
+            _produto = new Produto("Cadeira");
 
             //Act
             var resultado = _produto.BuscarProdutoPorNome("Cadeira Giratória");
