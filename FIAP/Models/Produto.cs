@@ -1,4 +1,6 @@
-﻿namespace FIAP.Models
+﻿using System.Net.NetworkInformation;
+
+namespace FIAP.Models
 {
     public class Produto
     {
@@ -27,6 +29,32 @@
         {
             AssertionConcern.AssertArgumentNotEmpty(Nome, "O nome não pode estar vazio!");
             AssertionConcern.AssertArgumentLength(Nome, 30, $"O nome não pode ser maior que 30 caracteres!");
+            AssertionConcern.AssertArgumentLength(Nome, 5, 30, $"O nome não pode ser maior que 30 caracteres e nem menor que 10 caracteres!");
+        }
+
+        public bool Deletar(string nomeDoProduto)
+        {
+            return _produtoLista.Remove(nomeDoProduto);
+        }
+
+        public string Atualizar(string nomeAntigo, string nomeNovo)
+        {
+            var produto = BuscarProdutoPorNome(nomeAntigo);
+
+            if (produto is null)
+                return "Produto não encontrato";
+
+            _ = Deletar(produto);
+
+            Nome = nomeNovo;
+            SalvarProduto();
+
+            return "Produto atualizado com sucesso";
+        }
+
+        public List<string> ListarTodos()
+        {
+            return _produtoLista.ToList();
         }
     }
 }

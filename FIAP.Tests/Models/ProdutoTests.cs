@@ -47,6 +47,16 @@ namespace FIAP.Tests.Models
             Assert.Equal("O nome não pode ser maior que 30 caracteres!", result.Message);
         }
 
+        [Fact]
+        public void Deve_Salvar_Produto_Validar_Tamanho_Minimo_Retornando_Exception()
+        {
+
+            var result = Assert.Throws<DomainException>(() => new Produto("nome"));
+
+            //Assert
+            Assert.Equal("O nome não pode ser maior que 30 caracteres e nem menor que 5 caracteres!", result.Message);
+        }
+
 
 
         [Fact]
