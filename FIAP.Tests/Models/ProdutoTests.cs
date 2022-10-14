@@ -57,8 +57,6 @@ namespace FIAP.Tests.Models
             Assert.Equal("O nome não pode ser maior que 30 caracteres e nem menor que 5 caracteres!", result.Message);
         }
 
-
-
         [Fact]
         public void Deve_Buscar_Produto_Por_Nome_Retornar_Sucesso()
         {
@@ -86,5 +84,36 @@ namespace FIAP.Tests.Models
             resultado.Should().BeEquivalentTo("Produto não encontrado");
 
         }
+
+        //Teste de listar todos
+        [Fact]
+        public void Deve_Listar_Todos_Produtos_Retornar_Sucesso()
+        {
+            //Arrange  
+            _produto = new Produto("Caneca");
+
+            //Act
+            var resultado = _produto.ListarTodos();
+
+            //Assert
+            resultado.Count().Should().Be(1);
+        }
+
+        //Deletar produto
+        [Fact]
+        public void Deve_Deletar_Produtos_Retornar_Sucesso()
+        {
+            //Arrange
+            var nomeProduto = "Cadeira Giratória 123";
+            _produto = new Produto(nomeProduto);
+
+            //Act
+            var resultado = _produto.Deletar(nomeProduto);
+
+            //Assert
+            resultado.Should().BeTrue();
+        }
+
+        //Atualizar
     }
 }
