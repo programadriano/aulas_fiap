@@ -29,7 +29,7 @@ namespace FIAP.Models
         {
             AssertionConcern.AssertArgumentNotEmpty(Nome, "O nome não pode estar vazio!");
             AssertionConcern.AssertArgumentLength(Nome, 30, $"O nome não pode ser maior que 30 caracteres!");
-            AssertionConcern.AssertArgumentLength(Nome, 5, 30, $"O nome não pode ser maior que 30 caracteres e nem menor que 10 caracteres!");
+            AssertionConcern.AssertArgumentLength(Nome, 5, 30, $"O nome não pode ser maior que 30 caracteres e nem menor que 5 caracteres!");
         }
 
         public bool Deletar(string nomeDoProduto)
