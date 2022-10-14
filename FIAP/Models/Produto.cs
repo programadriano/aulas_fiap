@@ -54,9 +54,7 @@ namespace FIAP.Models
 
         public List<string> ListarTodos()
         {
-            //if (!produtoLista.Any())
-            //    produtoLista = new List<string>();
-
+            
             return produtoLista.ToList();
         }
         

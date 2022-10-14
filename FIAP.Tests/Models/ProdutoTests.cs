@@ -115,5 +115,21 @@ namespace FIAP.Tests.Models
         }
 
         //Atualizar
+        [Fact]
+        public void Deve_Atualizar_Produto_Com_Sucesso()
+        {
+            //Arrange
+            var nomeDoProdutoAntigo = "Cadeira Giratória 123";
+            var nomeDoNovoProduto = "Cadeira Giratória XPTO";
+
+            _produto = new Produto(nomeDoProdutoAntigo);
+
+            //Act
+            var resultado = _produto.Atualizar(nomeDoProdutoAntigo, nomeDoNovoProduto);
+
+            //Assert
+            resultado.Should().BeEquivalentTo("Produto atualizado com sucesso");
+        }
+
     }
 }
