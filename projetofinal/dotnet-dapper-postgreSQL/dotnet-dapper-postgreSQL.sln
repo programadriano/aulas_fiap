@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnet-dapper-postgreSQL", "dotnet-dapper-postgreSQL\dotnet-dapper-postgreSQL.csproj", "{F0CF7DEE-D986-4A43-A3AB-AD925AD30A35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra", "Infra\Infra.csproj", "{B28A194A-1FEF-4568-A4AF-E38DDAEB8136}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F0CF7DEE-D986-4A43-A3AB-AD925AD30A35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0CF7DEE-D986-4A43-A3AB-AD925AD30A35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0CF7DEE-D986-4A43-A3AB-AD925AD30A35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0CF7DEE-D986-4A43-A3AB-AD925AD30A35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B28A194A-1FEF-4568-A4AF-E38DDAEB8136}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B28A194A-1FEF-4568-A4AF-E38DDAEB8136}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B28A194A-1FEF-4568-A4AF-E38DDAEB8136}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B28A194A-1FEF-4568-A4AF-E38DDAEB8136}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {58873B1F-DE37-4DF7-8677-1B868EADB338}
+	EndGlobalSection
+EndGlobal
